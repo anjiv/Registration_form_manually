@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <!-- CSS files -->
+    <link rel="stylesheet" href="bower_components/jquery-ui/themes/vader/jquery-ui.min.css">
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="bower_components/bootstrap-select/dist/css/bootstrap-select.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- JS files -->
+    <script src="bower_components/jquery/dist/jquery.min.js" type="text/javascript"></script>
+    <script src="bower_components/jquery-ui/jquery-ui.min.js" type="text/javascript"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="bower_components/remarkable-bootstrap-notify/dist/bootstrap-notify.min.js" type="text/javascript"></script>
+    <script src="bower_components/bootstrap-select/dist/js/bootstrap-select.min.js" type="text/javascript"></script>
+
+    <!-- Custom JS -->
+    <script src="script.js"></script>
+
+    <title>Registration</title>
+  </head>
+  <body>
+    <div class="form-wrapper">
+      <form action="" id="registration-form">
+        <div class="form-container">
+          <div class="firstname form-content">
+            <div class="label-content">
+              <label class="form">
+              First name</label>
+            </div>
+            <div class="input-group">
+              <div class="input-group-addon">
+                <span class="glyphicon glyphicon-user"></span>
+              </div>
+              <div class="input-content">
+                <input type="text" name="user" id="fname" class="form-control">
+              </div>
+            </div>
+          </div>
+          <div class="secondname form-content">
+            <div class="label-content">
+              <label class="form">
+              Last name</label>
+            </div>
+            <div class="input-group">
+              <div class="input-group-addon">
+                <span class="glyphicon glyphicon-user"></span>
+              </div>
+              <div class="input-content">
+                <input type="text" name="user" id="lname" class="form-control">
+              </div>
+            </div>
+          </div>
+          <div class="email form-content">
+            <div class="label-content">
+              <label class="form">E-mail</label>
+            </div>
+            <div class="input-group">
+              <div class="input-group-addon">
+                <span class="glyphicon glyphicon-envelope"></span>
+              </div>
+              <div class="input-content">
+                <input type="text" name="email" id="email" class="form-control">
+              </div>
+            </div>
+          </div>
+          <div class="pass form-content">
+            <div class="label-content">
+              <label class="form">
+              Password</label>
+            </div>
+            <div class="input-group">
+              <div class="input-group-addon">
+                <span class="glyphicon glyphicon-lock"></span>
+              </div>
+              <div class="input-content">
+                <input type="password" name="pass_confirmation" id="password" class="form-control">
+              </div>
+            </div>
+          </div>
+          <div class="repass form-content">
+            <div class="label-content">
+              <label class="form">
+              Re-enter password</label>
+            </div>
+            <div class="input-group">
+              <div class="input-group-addon">
+                <span class="glyphicon glyphicon-lock"></span>
+              </div>
+              <div class="input-content">
+                <input type="password" name="pass" id="repassword" class="form-control">
+              </div>
+            </div>
+          </div>
+          <div class="radio form-content btn-group btn-group-justified" data-toggle="buttons">
+            <label class="label-content btn btn-primary">
+            <input type="radio" name="options" id="option1" value="first" class="form-control"> Indian
+            </label>
+            <label class="label-content btn btn-primary">
+            <input type="radio" name="options" id="option2" value="second" class="form-control"> NRI
+            </label>
+          </div>
+          <div style="display:none" class="list form-content">
+            <div class="label-content">
+              <label>Select state :</label>
+            </div>
+            <div class="input-content">
+              <select class="drop">
+                <option value="Rajasthan">Rajasthan</option>
+                <option value="Mumbai">Mumbai</option>
+                <option value="Kerela">Kerela</option>
+                <option value="Goa">Goa</option>
+              </select>
+            </div>
+          </div>
+          <div style="display:none" class="pass-field form-content">
+            <div class="label-content">
+              <label>Passport number</label>
+            </div>
+            <div class="input-group">
+              <div class="input-group-addon">
+                <span class="glyphicon glyphicon-plane"></span>
+              </div>
+              <div class="input-content">
+                <input type="text" name="passport"  class="form-control">
+              </div>
+            </div>
+          </div>
+          <div class="date form-content">
+            <div class="label-content">
+              <label class="form"> Date </label>
+            </div>
+            <div class="input-group">
+              <div class="input-group-addon">
+                <span class="glyphicon glyphicon-calendar"></span>
+              </div>
+              <div class="input-content">
+                <input type="text" id="datepicker" id="date" class="form-control">
+              </div>
+            </div>
+          </div>
+          <div class="drop-picker form-content">
+            <div class="label-content">
+              <label class="form"> Select Option </label>
+            </div>
+            <div class="input-content">
+              <select class="selectpicker" data-width="100%" data-live-search="true" title="nothing selected..">
+                <optgroup label="Commerce">
+                  <option>B.A</option>
+                  <option>B.Com</option>
+                  <option>C.A</option>
+                </optgroup>
+                <optgroup label="Science">
+                  <option>B.Tech</option>
+                  <option>B.Sc</option>
+                  <option>B.Ca</option>
+                </optgroup>
+              </select>
+            </div>
+          </div>
+          <div class="tags form-content">
+            <div class="label-content">
+              <label for="tags">Stream </label>
+            </div>
+            <div class="input-group">
+              <div class="input-group-addon">
+                <span class="glyphicon glyphicon-search"></span>
+              </div>
+              <div class="input-content">
+                <input id="tags" class="form-control">
+              </div>
+            </div>
+          </div>
+          <div class="submit form-content">
+            <div class="input-content">
+              <input type="submit" value="Submit" />
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>
