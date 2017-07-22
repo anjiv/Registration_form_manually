@@ -27,19 +27,25 @@
       }
     });
 
-    $('input').blur(function(){
-      var $errdiv = $( "<div class='alert-error' id='errorContainer'>Please enter valid input.</div>" );
-      if($(this).val().length < 1){
-        $(this).closest('.form-content').find('label').addClass('error');
-        $(this).addClass('error');
-        $(this).closest('.form-content').append( $errdiv );
-      }
-      else{
-        $(this).closest('.form-content').find('label').removeClass('error');
-        $(this).removeClass('error');
-        $(this).closest('.form-content').find('.alert-error').remove();
-      }
+    $('.form-content input').blur(function(){
+      printError($(this).parent(),'Hi');
     });
-
   });
+
+  function printError($el,mes){
+    $errordiv = $( "<div class='alert-error' id='errorContainer'>" + mes + "</div>" );
+    if($el.find('input').val().length < 1){
+      $el.closest('.form-content').find('label').addClass('error');
+      $el.find('input').addClass('error');
+      if($el.find('.alert-error').length == 0){
+        $el.append($errordiv);
+      }
+    }
+    else{
+      $el.closest('.form-content').find('label').removeClass('error');
+      $el.find('input').removeClass('error');
+      $el.find('.alert-error').remove();
+    }
+  }
+
 })(jQuery);

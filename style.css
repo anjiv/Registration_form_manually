@@ -67,10 +67,10 @@ select{
 .input-content{
   width: 100%;
 }
-label.error{
+.form-content label.error{
   color: red;
 }
-input.error{
+.form-content input.error{
   border-color: red;
 }
 .alert-error{
