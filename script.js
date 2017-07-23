@@ -28,7 +28,7 @@
     });
 
     $('.form-content input').blur(function(){
-      printError($(this).parent(),'Hi');
+      printError($(this).parent(),$(this).data('errormes'));
     });
   });
 
