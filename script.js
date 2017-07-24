@@ -40,13 +40,28 @@
       	}
     	}
       if($(this).attr("id")=='password'){
-      	 pswd=$(this).val();
-        if(!(pswd.length > 8 && pswd.match(/[a-z]/) && pswd.match(/[A-Z]/) && pswd.match(/\d/)))
+      	pswd=$(this).val();
+        if(!(pswd.match(/[a-z]/))){
+					printError($(this).parent(),$(this).data('char'));
+        }
+        else if(!(pswd.match(/[A-Z]/)))
+        {
+					printError($(this).parent(),$(this).data('caps'));
+        }
+        else if(!(pswd.match(/\d/)))
+        {
+					printError($(this).parent(),$(this).data('digit'));
+        }
+        else if(!(pswd.match(/[!@#$%^&*]/)))
+        {
+					printError($(this).parent(),$(this).data('specialchar'));
+        }
+        else if(!(pswd.length > 8))
         {
 					printError($(this).parent(),$(this).data('type'));
         }
         else{
-          removeError($(this).parent());
+        	removeError($(this).parent());
         }
       }
       if($(this).attr("id")=='repassword'){
@@ -78,7 +93,7 @@
   }
 
   function emptyValidation($el,mes){
-    if($el.find('input').val().trim(" ").length < 1){
+    if($el.find('input').val().trim().length < 1){
       printError($el,mes);
       return true;
     }
