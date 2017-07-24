@@ -16,29 +16,11 @@
         $(".pass-field").hide();
       }
     });
-
-    $('.form-content input').blur(function(){
+    $('.form-content input').keyup(function(){
       if(emptyValidation($(this).parent(),$(this).data('errormes'))){
         //exit the code
         return;
       }
-      if(($(this).attr("id")=='fname' || $(this).attr("id")=='lname') && $(this).val().trim().length < 3) {
-        printError($(this).parent(),$(this).data('type'));
-      }
-      else {
-        removeError($(this).parent());
-      }
-      if($(this).attr("id")=='email'){
-        var patt=/^[A-Za-z0-9._]*\@[A-Za-z0-9._]*\.[A-Za-z]{2,5}$/;
-        var mail=$('#email').val();
-        var res=patt.test(mail);
-        if(!(res)){
-          printError($(this).parent(),$(this).data('type'));
-        }
-				else{
-        removeError($(this).parent());
-      	}
-    	}
       if($(this).attr("id")=='password'){
       	pswd=$(this).val();
         if(!(pswd.match(/[a-z]/))){
@@ -64,6 +46,35 @@
         	removeError($(this).parent());
         }
       }
+    });
+
+    $('.form-content input').blur(function(){
+      if(emptyValidation($(this).parent(),$(this).data('errormes'))){
+        //exit the code
+        return;
+      }
+      if(($(this).attr("id")=='fname' || $(this).attr("id")=='lname') && $(this).val().trim().length < 3) {
+        var patt=/[A-Za-z]/
+        var name=$('#fname').val();
+        var res=patt.test(name);
+        if(!(res)){
+        	printError($(this).parent(),$(this).data('type'));
+      	}
+      	else {
+        	removeError($(this).parent());
+      	}
+    	}
+      if($(this).attr("id")=='email'){
+        var patt=/^[A-Za-z0-9._]*\@[A-Za-z0-9._]*\.[A-Za-z]{2,5}$/;
+        var mail=$('#email').val();
+        var res=patt.test(mail);
+        if(!(res)){
+          printError($(this).parent(),$(this).data('type'));
+        }
+				else{
+        removeError($(this).parent());
+      	}
+    	}
       if($(this).attr("id")=='repassword'){
       	var repswd=$(this).val();
         if(!(repswd==pswd))
