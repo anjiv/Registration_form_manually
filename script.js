@@ -39,7 +39,7 @@
         {
 					printError($(this).parent(),$(this).data('specialchar'));
         }
-        else if(!(pswd.length > 8))
+        else if(!(pswd.length > 7))
         {
 					printError($(this).parent(),$(this).data('type'));
         }
@@ -54,11 +54,24 @@
         //exit the code
         return;
       }
-      if(($(this).attr("id")=='fname' || $(this).attr("id")=='lname') && $(this).val().trim().length < 3) {
-        var patt=/[A-Za-z]/;
-        var name=$('#fname').val();
-        var res=patt.test(name);
-        if(!(res)){
+      if($(this).attr("id")=='fname'){
+      	namevalid = $(this).val();
+      	if(!(namevalid.match(/[a-zA-Z]+$/))){
+      		printError($(this).parent(),$(this).data('number'));
+      	}
+      	else if(!(namevalid.trim().length > 2)) {
+        	printError($(this).parent(),$(this).data('type'));
+      	}
+      	else {
+        	removeError($(this).parent());
+      	}
+    	}
+      if($(this).attr("id")=='lname'){
+      	namevalid = $(this).val();
+				if(!(namevalid.match(/[a-zA-Z]+$/))){
+      		printError($(this).parent(),$(this).data('number'));
+      	}
+      	else if(!(namevalid.trim().length > 2)) {
         	printError($(this).parent(),$(this).data('type'));
       	}
       	else {
@@ -114,7 +127,20 @@
         	}
       });
 		});
-  });
+
+		$('#datepicker').datepicker();
+
+		var availableTags = [
+      "Science",
+      "Medical",
+      "Commerce",
+      "Arts",
+      "Humanity",
+      "Designing"
+    ];
+    $("#tags").autocomplete({
+      source: availableTags
+    });
 
   function printError($el,mes){
     $errordiv = $( "<div class='alert-error' id='errorContainer'>" + mes + "</div>" );

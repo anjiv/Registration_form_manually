@@ -22,7 +22,7 @@
   </head>
   <body>
     <div class="form-wrapper">
-      <form action="" id="registration-form">
+      <form action="" id="manual-registration-form">
         <div class="form-container">
           <div class="firstname form-content">
             <div class="label-content">
@@ -34,7 +34,7 @@
                 <span class="glyphicon glyphicon-user"></span>
               </div>
               <div class="input-content">
-                <input type="text" name="user" id="fname" class="form-control" data-type="Min 3 characters required." data-errormes="Please fill the field">
+                <input type="text" name="fuser" id="fname" class="form-control" data-type="Min 3 characters required." data-number="Only characters allowed." data-errormes="Please fill the field.">
               </div>
             </div>
           </div>
@@ -48,7 +48,7 @@
                 <span class="glyphicon glyphicon-user"></span>
               </div>
               <div class="input-content">
-                <input type="text" name="user" id="lname" class="form-control" data-type="Min 3 characters required." data-errormes="Please fill the field">
+                <input type="text" name="luser" id="lname" class="form-control" data-type="Min 3 characters required." data-number="Only characters allowed." data-errormes="Please fill the field.">
               </div>
             </div>
           </div>
@@ -61,7 +61,7 @@
                 <span class="glyphicon glyphicon-envelope"></span>
               </div>
               <div class="input-content">
-                <input type="text" name="email" id="email" class="form-control" data-type="Fill the correct email address" data-notvalid="Email already exist" data-errormes="Please fill the field">
+                <input type="text" name="email" id="email" class="form-control" data-type="Fill the correct email address." data-notvalid="Email already exist." data-errormes="Please fill the field.">
               </div>
             </div>
           </div>
@@ -75,7 +75,7 @@
                 <span class="glyphicon glyphicon-lock"></span>
               </div>
               <div class="input-content">
-                <input type="password" name="pass_confirmation" id="password" class="form-control" data-type="Min 8 characters required" data-char="Atleast one small alphabet required" data-caps="Atleast one capital letter required" data-digit="Atleast one number required" data-specialchar="Atleast one special character required" data-errormes="Please fill the field">
+                <input type="password" name="pass_confirmation" id="password" class="form-control" data-type="Min 8 characters required." data-char="Atleast one small alphabet required." data-caps="Atleast one capital letter required." data-digit="Atleast one number required." data-specialchar="Atleast one special character required." data-errormes="Please fill the field.">
               </div>
             </div>
           </div>
@@ -89,7 +89,7 @@
                 <span class="glyphicon glyphicon-lock"></span>
               </div>
               <div class="input-content">
-                <input type="password" name="pass" id="repassword" class="form-control" data-type="Pssword not matched" data-errormes="Please fill the field">
+                <input type="password" name="pass" id="repassword" class="form-control" data-type="Pssword not matched." data-errormes="Please fill the field.">
               </div>
             </div>
           </div>
@@ -126,7 +126,7 @@
                 <span class="glyphicon glyphicon-plane"></span>
               </div>
               <div class="input-content">
-                <input type="text" name="passport"  class="form-control" data-errormes="Please fill the field">
+                <input type="text" name="passport" id="passport" class="form-control" data-errormes="Please fill the field.">
               </div>
             </div>
           </div>
@@ -139,7 +139,7 @@
                 <span class="glyphicon glyphicon-calendar"></span>
               </div>
               <div class="input-content">
-                <input type="text" id="datepicker" id="date" class="form-control" data-errormes="Please fill the field">
+                <input type="text" id="datepicker" id="date" class="form-control" data-errormes="Please fill the field.">
               </div>
             </div>
           </div>
@@ -148,7 +148,7 @@
               <label class="form"> Select Option </label>
             </div>
             <div class="input-content">
-              <select class="selectpicker" data-width="100%" data-live-search="true" title="nothing selected..">
+              <select class="selectpicker" id="picker" data-width="100%" data-live-search="true" title="nothing selected..">
                 <optgroup label="Commerce">
                   <option>B.A</option>
                   <option>B.Com</option>
@@ -171,17 +171,18 @@
                 <span class="glyphicon glyphicon-search"></span>
               </div>
               <div class="input-content">
-                <input id="tags" class="form-control" data-errormes="Please fill the field">
+                <input id="tags" class="form-control" data-errormes="Please fill the field.">
               </div>
             </div>
           </div>
           <div class="submit form-content">
             <div class="input-content">
-              <input type="submit" value="Submit" />
+              <input type="submit" value="Submit" id="form-submit" />
             </div>
           </div>
         </div>
       </form>
+      <div id="form-demo"></div>
     </div>
   </body>
 </html>
