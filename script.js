@@ -48,13 +48,15 @@
       }
     });
 
+
+
     $('.form-content input').blur(function(){
       if(emptyValidation($(this).parent(),$(this).data('errormes'))){
         //exit the code
         return;
       }
       if(($(this).attr("id")=='fname' || $(this).attr("id")=='lname') && $(this).val().trim().length < 3) {
-        var patt=/[A-Za-z]/
+        var patt=/[A-Za-z]/;
         var name=$('#fname').val();
         var res=patt.test(name);
         if(!(res)){
@@ -67,6 +69,19 @@
       if($(this).attr("id")=='email'){
         var patt=/^[A-Za-z0-9._]*\@[A-Za-z0-9._]*\.[A-Za-z]{2,5}$/;
         var mail=$('#email').val();
+        var dataString= 'email=' + mail;
+        email-input=$(this);
+        $.ajax({
+        	type: "POST",
+        	url: "validation.php",
+        	data: dataString,
+        	cache: false,
+        	success: function(result){
+     				if(result=="true"){
+        			printError(email-input.parent(),email-input.data('notvalid'));
+        		}
+        	}
+        });
         var res=patt.test(mail);
         if(!(res)){
           printError($(this).parent(),$(this).data('type'));
