@@ -16,6 +16,7 @@
         $(".pass-field").hide();
       }
     });
+
     $('.form-content input').keyup(function(){
       if(emptyValidation($(this).parent(),$(this).data('errormes'))){
         //exit the code
@@ -48,8 +49,6 @@
       }
     });
 
-
-
     $('.form-content input').blur(function(){
       if(emptyValidation($(this).parent(),$(this).data('errormes'))){
         //exit the code
@@ -70,15 +69,15 @@
         var patt=/^[A-Za-z0-9._]*\@[A-Za-z0-9._]*\.[A-Za-z]{2,5}$/;
         var mail=$('#email').val();
         var dataString= 'email=' + mail;
-        email-input=$(this);
+        email_input=$(this);
         $.ajax({
         	type: "POST",
-        	url: "validation.php",
+        	url: "emailvalidation.php",
         	data: dataString,
         	cache: false,
         	success: function(result){
      				if(result=="true"){
-        			printError(email-input.parent(),email-input.data('notvalid'));
+        			printError(email_input.parent(),email_input.data('notvalid'));
         		}
         	}
         });
@@ -92,6 +91,7 @@
     	}
       if($(this).attr("id")=='repassword'){
       	var repswd=$(this).val();
+
         if(!(repswd==pswd))
         {
 					printError($(this).parent(),$(this).data('type'));
@@ -101,6 +101,19 @@
         }
       }
     });
+
+    $('#selectfield').change(function (event) {
+    	var dataString= 'select=' + $(this).val();
+			$.ajax({
+        	type: "POST",
+        	url: "selectvalidation.php",
+        	data: dataString,
+        	cache: false,
+        	success: function(result){
+        		$('#select-response').html(result);
+        	}
+      });
+		});
   });
 
   function printError($el,mes){
