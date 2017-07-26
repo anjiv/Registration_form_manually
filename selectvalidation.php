@@ -5,7 +5,7 @@ $rajasthan = array("Jaipur", "Jodhpur", "Udaipur", "Kota");
 $maharashtra = array("Pune", "Mumbai", "Nagpur", "Nashik");
 $gujrat = array("Ahmedabad", "Surat", "Vadodara", "Rajkot");
 $tamilnadu = array("Chennai", "Salem", "Vellore", "Erode");
-echo '<div class="label-content">
+echo '<div class="lab-content">
         <label>Select city :</label>
       </div>';
 switch ($state) {

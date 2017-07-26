@@ -34,7 +34,7 @@
                 <span class="glyphicon glyphicon-user"></span>
               </div>
               <div class="input-content">
-                <input type="text" name="fuser" id="fname" class="form-control" data-type="Min 3 characters required." data-number="Only characters allowed." data-errormes="Please fill the field.">
+                <input type="text" name="fuser" id="fname" class="form-control form-control-required" data-type="Min 3 characters required." data-number="Only characters allowed." data-errormes="Please fill the field.">
               </div>
             </div>
           </div>
@@ -48,7 +48,7 @@
                 <span class="glyphicon glyphicon-user"></span>
               </div>
               <div class="input-content">
-                <input type="text" name="luser" id="lname" class="form-control" data-type="Min 3 characters required." data-number="Only characters allowed." data-errormes="Please fill the field.">
+                <input type="text" name="luser" id="lname" class="form-control form-control-required" data-type="Min 3 characters required." data-number="Only characters allowed." data-errormes="Please fill the field.">
               </div>
             </div>
           </div>
@@ -61,7 +61,7 @@
                 <span class="glyphicon glyphicon-envelope"></span>
               </div>
               <div class="input-content">
-                <input type="text" name="email" id="email" class="form-control" data-type="Fill the correct email address." data-notvalid="Email already exist." data-errormes="Please fill the field.">
+                <input type="text" name="email" id="email" class="form-control form-control-required" data-type="Fill the correct email address." data-notvalid="Email already exist." data-errormes="Please fill the field.">
               </div>
             </div>
           </div>
@@ -75,7 +75,7 @@
                 <span class="glyphicon glyphicon-lock"></span>
               </div>
               <div class="input-content">
-                <input type="password" name="pass_confirmation" id="password" class="form-control" data-type="Min 8 characters required." data-char="Atleast one small alphabet required." data-caps="Atleast one capital letter required." data-digit="Atleast one number required." data-specialchar="Atleast one special character required." data-errormes="Please fill the field.">
+                <input type="password" name="pass_confirmation" id="password" class="form-control form-control-required" data-type="Min 8 characters required." data-char="Atleast one small alphabet required." data-caps="Atleast one capital letter required." data-digit="Atleast one number required." data-specialchar="Atleast one special character required." data-errormes="Please fill the field.">
               </div>
             </div>
           </div>
@@ -89,16 +89,16 @@
                 <span class="glyphicon glyphicon-lock"></span>
               </div>
               <div class="input-content">
-                <input type="password" name="pass" id="repassword" class="form-control" data-type="Pssword not matched." data-errormes="Please fill the field.">
+                <input type="password" name="pass" id="repassword" class="form-control form-control-required" data-type="Pssword not matched." data-errormes="Please fill the field.">
               </div>
             </div>
           </div>
           <div class="radio form-content btn-group btn-group-justified" data-toggle="buttons">
             <label class="label-content btn btn-primary">
-            <input type="radio" name="options" id="option1" value="first" class="form-control"> Indian
+            <input type="radio" name="options" id="option1" value="first" class="form-control form-control-required"> Indian
             </label>
             <label class="label-content btn btn-primary">
-            <input type="radio" name="options" id="option2" value="second" class="form-control"> NRI
+            <input type="radio" name="options" id="option2" value="second" class="form-control form-control-required"> NRI
             </label>
           </div>
           <div style="display:none" class="list form-content">
@@ -114,8 +114,8 @@
                 <option value="Tamil nadu">Tamil nadu</option>
               </select>
             </div>
-            <div class="input-content" id="select-response">
-            </div>
+          </div>
+          <div class="input-content list form-content" id="select-response">
           </div>
           <div style="display:none" class="pass-field form-content">
             <div class="label-content">
@@ -126,7 +126,7 @@
                 <span class="glyphicon glyphicon-plane"></span>
               </div>
               <div class="input-content">
-                <input type="text" name="passport" id="passport" class="form-control" data-errormes="Please fill the field.">
+                <input type="text" name="passport" id="passport" class="form-control form-control-required" data-errormes="Please fill the field.">
               </div>
             </div>
           </div>
@@ -139,7 +139,7 @@
                 <span class="glyphicon glyphicon-calendar"></span>
               </div>
               <div class="input-content">
-                <input type="text" id="datepicker" id="date" class="form-control" data-errormes="Please fill the field.">
+                <input type="text" id="datepicker"  class="form-control form-control-required" data-errormes="Please fill the field.">
               </div>
             </div>
           </div>
@@ -148,7 +148,7 @@
               <label class="form"> Select Option </label>
             </div>
             <div class="input-content">
-              <select class="selectpicker" id="picker" data-width="100%" data-live-search="true" title="nothing selected..">
+              <select class="selectpicker form-control-required" id="picker" data-width="100%" data-live-search="true" title="nothing selected..">
                 <optgroup label="Commerce">
                   <option>B.A</option>
                   <option>B.Com</option>
@@ -171,7 +171,7 @@
                 <span class="glyphicon glyphicon-search"></span>
               </div>
               <div class="input-content">
-                <input id="tags" class="form-control" data-errormes="Please fill the field.">
+                <input type="text" id="tags" class="form-control form-control-required" data-errormes="Please fill the field.">
               </div>
             </div>
           </div>
@@ -182,7 +182,7 @@
           </div>
         </div>
       </form>
-      <div id="form-demo"></div>
+      <div style="display: none" id="form-demo"></div>
     </div>
   </body>
 </html>
