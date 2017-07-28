@@ -162,22 +162,23 @@
               </select>
             </div>
           </div>
-          <div class="tags form-content">
+          <div class="autocomplete-container form-content">
             <div class="label-content">
-              <label for="tags">Stream </label>
+              <label class="form"> Stream </label>
             </div>
             <div class="input-group">
               <div class="input-group-addon">
                 <span class="glyphicon glyphicon-search"></span>
               </div>
               <div class="input-content">
-                <input type="text" id="tags" class="form-control form-control-required" data-errormes="Please fill the field.">
+                <input type="text" name="autofocus" class="focus form-control-required" id="autocomplete-input" placeholder="Stream Name"></input>
+                <div id="autocomplete-results"></div>
               </div>
             </div>
           </div>
           <div class="submit form-content">
             <div class="input-content">
-              <input type="submit" value="Submit" id="form-submit" />
+              <input type="button" value="Submit" id="form-submit" />
             </div>
           </div>
         </div>

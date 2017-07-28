@@ -111,20 +111,8 @@
 
     $('#datepicker').datepicker();
 
-    var availableTags = [
-      "Science",
-      "Medical",
-      "Commerce",
-      "Arts",
-      "Humanity",
-      "Designing"
-    ];
-    $("#tags").autocomplete({
-      source: availableTags
-    });
-
     $('#form-submit').on('click', function(e) {
-      e.preventDefault();
+    	e.preventDefault();
       var isFormValid = checkValidation($('#manual-registration-form'));
       if (isFormValid == false) {
         $.notify({
@@ -143,6 +131,7 @@
         var st = '';
         $('#manual-registration-form input[type=text].form-control-required, input[type=password].form-control-required, select').each(function() {
         	if ($(this).closest('.form-content').css('display') !== 'none') {
+        		console.log($(this).closest('.form-content'));
           	st = st + '<div class="table-item">' + $(this).closest('.form-content').find('label').text() + ' ' + ':' + ' ' + $(this).val() + '</div>';
           	$(this).val('');
           }
@@ -151,6 +140,31 @@
         $('#form-demo').show();
       }
     });
+
+    $("#autocomplete-input").keyup(function(){
+    	var keywordString = 'q='+$(this).val();
+    	$.ajax({
+    		type: "GET",
+    		url: "autocomplete.php?" + keywordString,
+    		data: keywordString,
+    		beforeSend: function(){
+    			$("#autocomplete-input").css("background","#FFF");
+    		},
+    		success: function(data){
+    			$("#autocomplete-results").show();
+    			$("#autocomplete-results").empty();
+    			$.each(data, function(index,val) {
+    				var $el = $("<p>"+val+"</p>");
+    				$el.click(function() {
+    					$('#autocomplete-input').val(val);
+    				});
+  					$("#autocomplete-results").append($el);
+					});
+    			$("#autocomplete-input").css("background","#FFF");
+    		}
+    	});
+    });
+
   });
 
   function printError($el, mes) {
