@@ -147,9 +147,6 @@
     		type: "GET",
     		url: "autocomplete.php?" + keywordString,
     		data: keywordString,
-    		beforeSend: function(){
-    			$("#autocomplete-input").css("background","#FFF");
-    		},
     		success: function(data){
     			$("#autocomplete-results").show();
     			$("#autocomplete-results").empty();
@@ -160,7 +157,6 @@
     				});
   					$("#autocomplete-results").append($el);
 					});
-    			$("#autocomplete-input").css("background","#FFF");
     		}
     	});
     });
