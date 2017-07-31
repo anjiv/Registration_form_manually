@@ -11,6 +11,7 @@ echo '<div class="lab-content">
 switch ($state) {
     case "Rajasthan":
         echo "<select class='drop' id='dropdown'>";
+        echo " <option disabled selected>Please pick one</option>";
         foreach($rajasthan as $value){
           echo "<option>". $value . "</option>";
         }
@@ -18,6 +19,7 @@ switch ($state) {
         break;
     case "Maharashtra":
         echo "<select class='drop' id='dropdown'>";
+        echo " <option disabled selected>Please pick one</option>";
         foreach($maharashtra as $value){
           echo "<option>". $value . "</option>";
         }
@@ -25,6 +27,7 @@ switch ($state) {
         break;
     case "Gujrat":
         echo "<select class='drop' id='dropdown'>";
+        echo " <option disabled selected>Please pick one</option>";
         foreach($gujrat as $value){
           echo "<option>". $value . "</option>";
         }
@@ -32,6 +35,7 @@ switch ($state) {
         break;
     case "Tamil nadu":
         echo "<select class='drop' id='dropdown'>";
+        echo " <option disabled selected>Please pick one</option>";
         foreach($tamilnadu as $value){
           echo "<option>". $value . "</option>";
         }

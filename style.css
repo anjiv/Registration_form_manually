@@ -38,6 +38,7 @@ body {
   padding:5px;
 }
 .input-content{
+  width: 100%;
   color: white;
 }
 select.drop{
@@ -72,9 +73,6 @@ select{
   align-items: center;
   justify-content: center;
 }
-.input-content{
-  width: 100%;
-}
 .form-content label.error{
   color: red;
 }
@@ -96,6 +94,7 @@ select{
   flex-direction: column;
   color: white;
   cursor:pointer;
+  background: white;
 }
 #autocomplete-results li {
   width: 100%;
@@ -107,4 +106,19 @@ select{
 #autocomplete-results li:hover {
   background: black;
 }
-
+#autocomplete-results p{
+  color: black;
+}
+#outer{
+  width:100%;
+}
+.inner{
+  width: 49%;
+  display: inline-block;
+}
+input#form-submit{
+  text-align: center;
+}
+input#form-reset{
+  text-align: center;
+}

@@ -68,6 +68,12 @@
         var mail = $('#email').val();
         var dataString = 'email=' + mail;
         email_input = $(this);
+        var res = patt.test(mail);
+        if (!(res)) {
+          printError($(this).parent(), $(this).data('type'));
+        } else {
+          removeError($(this).parent());
+        }
         $.ajax({
           type: "POST",
           url: "emailvalidation.php",
@@ -79,12 +85,6 @@
             }
           }
         });
-        var res = patt.test(mail);
-        if (!(res)) {
-          printError($(this).parent(), $(this).data('type'));
-        } else {
-          removeError($(this).parent());
-        }
       }
       if ($(this).attr("id") == 'repassword') {
         var repswd = $(this).val();
@@ -112,7 +112,7 @@
     $('#datepicker').datepicker();
 
     $('#form-submit').on('click', function(e) {
-    	e.preventDefault();
+      e.preventDefault();
       var isFormValid = checkValidation($('#manual-registration-form'));
       if (isFormValid == false) {
         $.notify({
@@ -130,35 +130,38 @@
         });
         var st = '';
         $('#manual-registration-form input[type=text].form-control-required, input[type=password].form-control-required, select').each(function() {
-        	if ($(this).closest('.form-content').css('display') !== 'none') {
-        		console.log($(this).closest('.form-content'));
-          	st = st + '<div class="table-item">' + $(this).closest('.form-content').find('label').text() + ' ' + ':' + ' ' + $(this).val() + '</div>';
-          	$(this).val('');
+          if ($(this).closest('.form-content').css('display') !== 'none') {
+            st = st + '<div class="table-item">' + $(this).closest('.form-content').find('label').text() + ' ' + ':' + ' ' + $(this).val() + '</div>';
           }
         });
-        $('#form-demo').append('<div class="table-content">' + st + '</div>');
+        $('#form-demo').html('<div class="table-content">' + st + '</div>');
         $('#form-demo').show();
       }
     });
 
-    $("#autocomplete-input").keyup(function(){
-    	var keywordString = 'q='+$(this).val();
-    	$.ajax({
-    		type: "GET",
-    		url: "autocomplete.php?" + keywordString,
-    		data: keywordString,
-    		success: function(data){
-    			$("#autocomplete-results").show();
-    			$("#autocomplete-results").empty();
-    			$.each(data, function(index,val) {
-    				var $el = $("<p>"+val+"</p>");
-    				$el.click(function() {
-    					$('#autocomplete-input').val(val);
-    				});
-  					$("#autocomplete-results").append($el);
-					});
-    		}
-    	});
+    $('#form-reset').on('click', function() {
+      location.reload();
+    });
+
+    $("#autocomplete-input").keyup(function() {
+      var keywordString = 'q=' + $(this).val();
+      $.ajax({
+        type: "GET",
+        url: "autocomplete.php?" + keywordString,
+        data: keywordString,
+        success: function(data) {
+          $("#autocomplete-results").show();
+          $("#autocomplete-results").empty();
+          $.each(data, function(index, val) {
+            var $el = $("<p>" + val + "</p>");
+            $el.click(function() {
+              $('#autocomplete-input').val(val);
+              $('#autocomplete-results').hide();
+            });
+            $("#autocomplete-results").append($el);
+          });
+        }
+      });
     });
 
   });
